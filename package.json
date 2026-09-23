@@ -1,0 +1,25 @@
+{
+    "name": "my-landing-pages",
+    "private": true,
+    "version": "0.1.0",
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently -n frontend,api -c cyan,green \"vite\" \"node api/contact.js\"",
+        "dev:front": "vite",
+        "dev:api": "node api/contact.js",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@vitejs/plugin-react": "latest",
+        "concurrently": "latest",
+        "cors": "latest",
+        "dotenv": "latest",
+        "express": "latest",
+        "nodemailer": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "vite": "latest"
+    },
+    "devDependencies": {}
+}
