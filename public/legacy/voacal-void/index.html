@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOID VOCAL - Real-Time Voice Changer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-orb o1"></div>
+  <div class="bg-orb o2"></div>
+
+  <!--  SPLASH / ONBOARDING  -->
+  <div class="splash" id="splash">
+    <div class="splash-card">
+      <div class="splash-logo">VOID VOCAL</div>
+      <div class="splash-sub">Real-Time Voice Changer &amp; Pitch Shifter</div>
+
+      <div class="splash-what">🎤 What does this do?</div>
+      <div class="splash-desc">
+        VOID VOCAL listens to your microphone <strong>live</strong> and transforms your voice in real time -
+        shift your pitch up or down, add autotune snap, slap on reverb, crush it with distortion,
+        add robot effects, and more. Think <strong>T-Pain, Travis Scott, Daft Punk</strong> - all in your browser, no
+        install needed.
+      </div>
+
+      <ul class="how-list">
+        <li>
+          <div class="how-num">1</div>
+          <div class="how-text"><strong>Click "Start" below</strong> - your browser will ask for microphone permission.
+            Allow it.</div>
+        </li>
+        <li>
+          <div class="how-num">2</div>
+          <div class="how-text"><strong>Speak or sing into your mic.</strong> You'll see your voice visualized as a
+            waveform on screen.</div>
+        </li>
+        <li>
+          <div class="how-num">3</div>
+          <div class="how-text"><strong>Pick a Preset</strong> (like "Travis Scott" or "Robot") or tweak the sliders to
+            shape your sound.</div>
+        </li>
+        <li>
+          <div class="how-num">4</div>
+          <div class="how-text"><strong>Wear headphones</strong> to hear the processed output without feedback echo.
+          </div>
+        </li>
+      </ul>
+
+      <button class="splash-btn" onclick="closeSplash()">🎙️ &nbsp; LET'S GO - START THE APP</button>
+      <div class="splash-note">⚠️ Headphones recommended · Works best in Chrome / Edge · No data is sent anywhere</div>
+    </div>
+  </div>
+
+  <!-- ══ APP ══ -->
+  <div class="app">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-block">
+        <div class="logo">VOID VOCAL</div>
+        <div class="tagline">Real-Time Voice Changer &amp; Pitch Shifter</div>
+      </div>
+      <button class="help-btn" onclick="document.getElementById('splash').classList.remove('gone')">❓ How it
+        works</button>
+    </div>
+
+    <!-- MIC HERO -->
+    <div class="mic-hero">
+      <div class="mic-btn-wrap">
+        <button class="mic-btn" id="micBtn" onclick="toggleMic()">🎙️</button>
+        <div class="mic-label" id="micLabel">Tap to Start</div>
+      </div>
+      <div class="mic-info">
+        <h2 id="micTitle">Activate Your Microphone</h2>
+        <p id="micDesc">Hit the button on the left to grant mic access and start the voice engine. <strong>Wear
+            headphones</strong> so your speakers don't feed back into the mic.</p>
+        <div class="steps">
+          <div class="step-pill">
+            <div class="n">1</div>Allow mic
+          </div>
+          <div class="step-pill">
+            <div class="n">2</div>Sing or speak
+          </div>
+          <div class="step-pill">
+            <div class="n">3</div>Pick a preset
+          </div>
+          <div class="step-pill">
+            <div class="n">4</div>Hear the magic
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISUALIZER -->
+    <div class="viz-wrap">
+      <canvas id="vizCanvas"></canvas>
+      <div class="viz-idle" id="vizIdle">
+        〰️ &nbsp;<span>Waveform will appear here once mic is active</span>
+      </div>
+    </div>
+
+    <!-- PITCH DISPLAY -->
+    <div class="pitch-strip">
+      <div class="pitch-block">
+        <div class="pitch-title">Detected Note</div>
+        <div class="pitch-val" id="pitchNote">-</div>
+      </div>
+      <div class="pitch-block">
+        <div class="pitch-title">Frequency</div>
+        <div class="pitch-hz" id="pitchHz">- Hz</div>
+        <div class="pitch-cents" id="pitchCents">Sing to detect</div>
+      </div>
+      <div class="tuner-wrap">
+        <div class="tuner-label">Tuner - green = in tune</div>
+        <canvas id="tunerCanvas" width="400" height="44"></canvas>
+      </div>
+    </div>
+
+    <!-- FX TOGGLES -->
+    <div class="fx-section">
+      <div class="sec-title">Effect Switches - click to toggle on/off</div>
+      <div class="fx-row" id="fxRow"></div>
+    </div>
+
+    <!-- PRESETS -->
+    <div class="sec-title">Quick Presets - one click to load a full sound</div>
+    <div class="presets-grid" id="presetsGrid"></div>
+
+    <!-- CONTROLS -->
+    <div class="sec-title">Fine Controls - drag sliders to customize your sound</div>
+    <div class="controls">
+
+      <div class="ctrl-panel purple">
+        <div class="ctrl-title"><span class="icon">🎵</span> Pitch Engine</div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Shifts your voice up (+) or down (-) in semitones. +12 = one octave up">Pitch Shift
+              ❓</span><span class="sl-val" id="vPitch">0 st</span></div>
+          <input type="range" class="p" id="sPitch" min="-12" max="12" step="0.5" value="0"
+            oninput="up('pitch',this.value)">
+          <div class="sl-hint">−12 st (deep) → +12 st (chipmunk)</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="How fast autotune snaps your pitch to the nearest note. 100% = instant T-Pain snap">Autotune
+              Snap ❓</span><span class="sl-val" id="vSnap">60%</span></div>
+          <input type="range" class="p" id="sSnap" min="0" max="100" value="60" oninput="up('snap',this.value)">
+          <div class="sl-hint">0% = off · 100% = hard robotic snap</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Shifts the vocal character (timbre) separately from pitch. Negative = deeper/warmer, positive = brighter/thinner">Formant
+              Shift ❓</span><span class="sl-val" id="vFormant">0 st</span></div>
+          <input type="range" class="p" id="sFormant" min="-6" max="6" step="0.5" value="0"
+            oninput="up('formant',this.value)">
+          <div class="sl-hint">Changes voice character, not pitch</div>
+        </div>
+      </div>
+
+      <div class="ctrl-panel cyan">
+        <div class="ctrl-title"><span class="icon">〰️</span> Modulation</div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Vibrato = pitch wobble. This sets how fast the wobble oscillates (Hz = times per second)">Vibrato
+              Speed ❓</span><span class="sl-val" id="vVibR">0 Hz</span></div>
+          <input type="range" class="c" id="sVibR" min="0" max="10" step="0.1" value="0"
+            oninput="up('vibR',this.value)">
+          <div class="sl-hint">0 = off · 5–7 Hz = natural vibrato</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="How wide the vibrato pitch wobble is. Small = subtle, large = dramatic wobble">Vibrato Depth
+              ❓</span><span class="sl-val" id="vVibD">0 st</span></div>
+          <input type="range" class="c" id="sVibD" min="0" max="2" step="0.05" value="0"
+            oninput="up('vibD',this.value)">
+          <div class="sl-hint">Width of pitch wobble in semitones</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Blend between your dry (unprocessed) voice and the fully effected wet signal">Dry / Wet Mix
+              ❓</span><span class="sl-val" id="vMix">100%</span></div>
+          <input type="range" class="c" id="sMix" min="0" max="100" value="100" oninput="up('mix',this.value)">
+          <div class="sl-hint">0% = original voice · 100% = full effect</div>
+        </div>
+      </div>
+
+      <div class="ctrl-panel amber">
+        <div class="ctrl-title"><span class="icon">🔥</span> Distortion &amp; Grit</div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Overdrive / saturation - adds warmth, edge, or full crunch to your voice">Drive ❓</span><span
+              class="sl-val" id="vDrive">0%</span></div>
+          <input type="range" class="a" id="sDrive" min="0" max="100" value="0" oninput="up('drive',this.value)">
+          <div class="sl-hint">0% = clean · 100% = heavy distortion</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Reduces audio bit depth - 16 bit = clean digital, 4 bit = lo-fi crunchy, 1 bit = extreme robot">Bit
+              Crush ❓</span><span class="sl-val" id="vBit">16 bit</span></div>
+          <input type="range" class="a" id="sBit" min="1" max="16" step="1" value="16" oninput="up('bit',this.value)">
+          <div class="sl-hint">16 bit = clean · 1 bit = extreme crunch</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Final output volume in decibels. Boost if your voice is too quiet, reduce if clipping">Output
+              Volume ❓</span><span class="sl-val" id="vGain">0 dB</span></div>
+          <input type="range" class="a" id="sGain" min="-20" max="12" step="0.5" value="0"
+            oninput="up('gain',this.value)">
+          <div class="sl-hint">−20 dB = quiet · +12 dB = louder</div>
+        </div>
+      </div>
+
+      <div class="ctrl-panel green">
+        <div class="ctrl-title"><span class="icon">🌊</span> Space &amp; Echo</div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Controls how big the reverb 'room' sounds - small room vs vast cathedral">Reverb Size
+              ❓</span><span class="sl-val" id="vRevSz">40%</span></div>
+          <input type="range" class="g" id="sRevSz" min="0" max="100" value="40" oninput="up('revSz',this.value)">
+          <div class="sl-hint">0% = dry room · 100% = huge hall</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="How much reverb (echo/space) is blended into your voice">Reverb Amount ❓</span><span
+              class="sl-val" id="vRevMx">20%</span></div>
+          <input type="range" class="g" id="sRevMx" min="0" max="100" value="20" oninput="up('revMx',this.value)">
+          <div class="sl-hint">0% = no reverb · 100% = drowned in space</div>
+        </div>
+        <div class="sl-group">
+          <div class="sl-head"><span class="sl-name"
+              data-tip="Delay repeats your voice after X milliseconds - like a slap-back or canyon echo">Delay Time
+              ❓</span><span class="sl-val" id="vDelay">0 ms</span></div>
+          <input type="range" class="g" id="sDelay" min="0" max="800" step="10" value="0"
+            oninput="up('delay',this.value)">
+          <div class="sl-hint">0 = off · 800 ms = long canyon echo</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="about-section">
+      <div class="about-grid">
+        <div class="about-main">
+          <div class="sec-title" style="margin-bottom:16px">About VOID VOCAL</div>
+          <p class="about-desc">
+            <strong>VOID VOCAL</strong> is a real-time voice changer and pitch shifter that runs entirely in your
+            browser -
+            no app, no plugin, no server. It listens to your microphone live and applies a professional-grade
+            DSP (Digital Signal Processing) chain to your voice: pitch shifting, autotune snap, reverb, distortion,
+            bit crushing, vibrato, harmony, delay, and more. Think <strong>T-Pain, Travis Scott, Daft Punk</strong> -
+            all in a single HTML file.
+          </p>
+          <div class="about-badges">
+            <span class="badge">🌐 Web Audio API</span>
+            <span class="badge">⚡ Real-Time DSP</span>
+            <span class="badge">🔒 100% Private</span>
+            <span class="badge">📦 Zero Dependencies</span>
+            <span class="badge">🆓 Open Source</span>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">8</div>
+            <div class="stat-label">Presets</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">5</div>
+            <div class="stat-label">FX Toggles</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Sliders</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">&lt;50ms</div>
+            <div class="stat-label">Latency</div>
+          </div>
+        </div>
+      </div>
+      <div class="chain-title">Signal Chain - how your voice travels through the app</div>
+      <div class="chain">
+        <div class="chain-node">🎙️<span>Mic Input</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">📊<span>Analyser</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">🔥<span>Distortion</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">〰️<span>Vibrato LFO</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">🌊<span>Reverb</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">⏱️<span>Delay</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">🎚️<span>Output Gain</span></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-node">🎧<span>Headphones</span></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      VOID VOCAL · Built with Web Audio API · No server · 100% browser · By <a
+        href="https://github.com/adil-12-hassan">adil-12-hassan</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

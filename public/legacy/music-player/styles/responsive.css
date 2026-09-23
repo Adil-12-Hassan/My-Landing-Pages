@@ -1,0 +1,257 @@
+/* TABLETS 768px - 1024px */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  #app {
+    padding: 35px 18px;
+  }
+
+  .music-player {
+    max-width: 800px;
+    padding: 30px;
+  }
+
+  .now-playing {
+    grid-template-columns: 230px 1fr;
+    gap: 30px;
+  }
+}
+
+/*
+MOBILE / TABLETS
+Below 768px
+ */
+
+@media (max-width: 767px) {
+  /* Navbar */
+
+  .navbar {
+    min-height: 62px;
+    padding: 0 20px;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .navbar-status {
+    font-size: 11px;
+  }
+
+  /* Application */
+
+  #app {
+    padding: 25px 15px 42px;
+  }
+
+  /* Player */
+
+  .music-player {
+    width: min(100%, 520px);
+    padding: 26px 18px;
+    border-radius: 18px;
+  }
+
+  /* Header */
+
+  .player-header {
+    margin-bottom: 25px;
+  }
+
+  .player-logo {
+    font-size: 27px;
+  }
+
+  .player-header h1 {
+    font-size: 20px;
+  }
+
+  .player-header p {
+    font-size: 12px;
+  }
+
+  /* Now Playing */
+
+  .now-playing {
+    grid-template-columns: 1fr;
+    gap: 22px;
+
+    margin-bottom: 28px;
+  }
+
+  .album-art {
+    width: min(100%, 300px);
+    margin: 0 auto;
+  }
+
+  .song-info {
+    text-align: center;
+  }
+
+  .song-info h2 {
+    font-size: 29px;
+  }
+
+  .song-info p {
+    font-size: 14px;
+  }
+
+  /* Controls */
+
+  .player-controls {
+    gap: 8px;
+  }
+
+  .player-controls button {
+    min-width: 0;
+    flex: 1;
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  #play-btn {
+    flex: 1.2;
+  }
+
+  /* Volume */
+
+  .volume-control {
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  /* Playlist */
+
+  .playlist-header h2 {
+    font-size: 16px;
+  }
+
+  .playlist-item {
+    padding: 10px;
+  }
+
+  .form-row,
+  .playlist-tools {
+    flex-wrap: wrap;
+  }
+
+  .form-row > input,
+  .file-picker,
+  .add-song-btn,
+  .search-field,
+  .sort-field,
+  .sort-field select {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .playlist-item img {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 22px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+/* SMALL PHONES Below 480px */
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar-status {
+    display: none;
+  }
+
+  #app {
+    padding: 15px 10px 32px;
+  }
+
+  .music-player {
+    padding: 20px 14px;
+    border-radius: 12px;
+  }
+
+  .player-header {
+    margin-bottom: 20px;
+  }
+
+  .player-header h1 {
+    font-size: 18px;
+  }
+
+  .player-header p {
+    font-size: 11px;
+  }
+
+  .album-art {
+    max-width: 260px;
+  }
+
+  .song-info h2 {
+    font-size: 23px;
+  }
+
+  .song-info p {
+    font-size: 13px;
+  }
+
+  .player-controls button {
+    padding: 10px 5px;
+    font-size: 11px;
+  }
+
+  .volume-control label {
+    min-width: 45px;
+    font-size: 12px;
+  }
+
+  .playlist-item-title {
+    font-size: 13px;
+  }
+
+  .playlist-item-artist {
+    font-size: 11px;
+  }
+}
+
+/* VERY SMALL PHONESBelow 360px */
+@media (max-width: 359px) {
+  .brand-name {
+    font-size: 14px;
+  }
+  .music-player {
+    padding: 17px 11px;
+  }
+  .song-info h2 {
+    font-size: 20px;
+  }
+
+  .player-controls {
+    gap: 5px;
+  }
+
+  .player-controls button {
+    padding: 9px 3px;
+    font-size: 10px;
+  }
+}

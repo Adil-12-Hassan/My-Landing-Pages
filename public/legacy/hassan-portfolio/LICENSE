@@ -1,0 +1,98 @@
+PROPRIETARY SOFTWARE/MIT LICENSE
+
+Copyright (c) 2026 Adil Hassan. All rights reserved.
+
+Software: Landing (the "Software"), including its source code, database
+schema, design, documentation, and all related files in this repository.
+
+
+1. OWNERSHIP
+
+The Software is the exclusive intellectual property of Adil Hassan (the
+"Owner"). The Software is licensed, not sold. No title to or ownership of the
+Software is transferred by this license or by access to this repository.
+
+
+2. LIMITED EVALUATION RIGHT
+
+The Owner grants you a limited, non-exclusive, non-transferable, revocable
+permission to view the source code of the Software solely for the purpose of
+personal evaluation, such as reviewing the Owner's work for hiring, portfolio,
+or purchase-consideration purposes.
+
+This permission does not include the right to run the Software in production,
+to use it for any commercial purpose, or to use it to provide services to
+others.
+
+
+3. RESTRICTIONS
+
+Except as expressly permitted in Section 2, or by a separate written agreement
+with the Owner, you may not:
+
+  a. copy, reproduce, or duplicate the Software or any substantial part of it;
+  b. modify, adapt, translate, or create derivative works of the Software;
+  c. distribute, publish, sublicense, lease, rent, lend, or resell the Software;
+  d. deploy, host, or operate the Software, or any derivative of it, for
+     yourself or for any third party;
+  e. use the Software, in whole or in part, as the basis for another product,
+     template, or service;
+  f. remove or alter any copyright, attribution, or proprietary notice; or
+  g. use the Owner's name, brand, or project name to endorse or promote any
+     product without prior written permission.
+
+
+4. COMMERCIAL LICENSES
+
+Commercial use, deployment, customization, and transfer of ownership are
+available only under a separate written agreement with the Owner. To inquire,
+contact the Owner through https://github.com/Adil-12-Hassan.
+
+
+5. THIRD-PARTY COMPONENTS AND CONTENT
+
+The Software depends on open-source packages (for example React, Vite,
+Tailwind CSS, Zustand, Express, and Supabase client libraries), each of which
+is licensed under its own terms. Those terms continue to apply to those
+components and are not modified by this license.
+
+Third-party images, fonts, and other media referenced by the Software remain
+the property of their respective owners and are subject to their own licenses.
+This license grants no rights to such materials.
+
+
+6. TERMINATION
+
+This license and the permission in Section 2 terminate automatically, without
+notice, if you breach any of its terms. Upon termination you must stop all use
+of the Software and delete all copies in your possession. The Owner may also
+revoke the permission in Section 2 at any time.
+
+
+7. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+
+8. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+9. GOVERNING LAW
+
+This license is governed by the laws of the Islamic Republic of Pakistan,
+without regard to its conflict-of-law provisions.
+
+
+10. ENTIRE AGREEMENT
+
+This license is the entire agreement between you and the Owner regarding the
+Software's use, unless replaced by a separate written agreement signed by the
+Owner. If any provision is found unenforceable, the remaining provisions stay
+in effect.

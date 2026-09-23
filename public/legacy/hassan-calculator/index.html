@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, keyboard-supported calculator built with HTML5, CSS3 & Vanilla JS" />
+  <meta name="author" content="adil12hassan" />
+  <title>Calculator | CodeAlpha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="calc" role="application" aria-label="Calculator">
+
+    <!-- ── Display ── -->
+    <div class="display" aria-live="polite" aria-atomic="true">
+      <div class="kbd-hint" aria-hidden="true">
+        <span class="kbd-badge">0–9</span>
+        <span class="kbd-badge">+-*/</span>
+        <span class="kbd-badge">Enter</span>
+      </div>
+      <div class="history" id="history" aria-label="Calculation history"></div>
+      <div class="expression" id="expression" aria-label="Current expression"></div>
+      <div class="result" id="result" aria-label="Result">0</div>
+    </div>
+
+    <!-- ── Button Grid ── -->
+    <div class="grid" role="group" aria-label="Calculator buttons">
+
+      <!-- Row 1: Functions (Left) -->
+      <button class="btn btn-fn clear" data-action="clear" aria-label="All clear">AC</button>
+      <button class="btn btn-fn percent" data-action="percent" aria-label="Percent">%</button>
+      <button class="btn btn-fn delete" data-action="backspace" aria-label="Delete last digit">⌫</button>
+        <!-- Operations Column (Right) -->
+        <button class="btn btn-op" data-action="op" data-op="÷" aria-label="Divide">÷</button>
+
+      <!-- Row 2: 7 8 9 × -->
+      <button class="btn" data-action="num" data-val="7">7</button>
+      <button class="btn" data-action="num" data-val="8">8</button>
+      <button class="btn" data-action="num" data-val="9">9</button>
+      <button class="btn btn-op" data-action="op" data-op="×" aria-label="Multiply">×</button>
+
+      <!-- Row 3: 4 5 6 − -->
+      <button class="btn" data-action="num" data-val="4">4</button>
+      <button class="btn" data-action="num" data-val="5">5</button>
+      <button class="btn" data-action="num" data-val="6">6</button>
+      <button class="btn btn-op" data-action="op" data-op="−" aria-label="Subtract">−</button>
+
+      <!-- Row 4: 1 2 3 + -->
+      <button class="btn" data-action="num" data-val="1">1</button>
+      <button class="btn" data-action="num" data-val="2">2</button>
+      <button class="btn" data-action="num" data-val="3">3</button>
+      <button class="btn btn-op" data-action="op" data-op="+" aria-label="Add">+</button>
+
+      <!-- Row 5: 0 (span 2) . = -->
+      <button class="btn btn-zero last-row-1" data-action="num" data-val="0" aria-label="Zero">0</button>
+      <button class="btn last-row-2" data-action="decimal" aria-label="Decimal point">.</button>
+      <button class="btn btn-eq last-row-5" data-action="equals" aria-label="Equals">=</button>
+
+    </div>
+  </div>
+
+  <p class="footer">
+    Built by <a href="https://code-with-hassan-phi.vercel.app" target="_blank" rel="noopener">adil12hassan</a>
+    &nbsp;·&nbsp; CodeAlpha
+  </p>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

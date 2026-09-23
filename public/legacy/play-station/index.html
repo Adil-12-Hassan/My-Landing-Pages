@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Workstation Pro - Complete Edition</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Audio Workstation Pro</h1>
+            <p class="subtitle">Professional Audio Analysis, Conversion & Editing - Complete Edition</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Upload and Waveform Panel -->
+            <div class="panel">
+                <h2 class="panel-title"><span class="icon">🎼</span> Waveform & Pitch Analysis</h2>
+
+                <div class="upload-area" id="uploadArea">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🎧</div>
+                    <h3>Drop your audio file here</h3>
+                    <p style="color: #a0a0a0; margin: 10px 0;">or click to browse</p>
+                    <input type="file" id="audioFile" accept="audio/*,video/*">
+                </div>
+
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="color: #a0a0a0;" id="fileName">No file selected</span>
+                </div>
+
+                <canvas id="waveformCanvas"></canvas>
+
+                <!-- Interactive Timeline Scrubber -->
+                <div class="timeline-container">
+                    <div class="timeline-wrapper" id="timelineWrapper">
+                        <div class="timeline-track">
+                            <div class="timeline-progress" id="timelineProgress"></div>
+                        </div>
+                        <div class="timeline-handle" id="timelineHandle"></div>
+                    </div>
+                    <div class="timeline-time">
+                        <span class="current-time" id="currentTimeDisplay">0:00</span>
+                        <span id="totalTimeDisplay">0:00</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn" id="playBtn" disabled>▶️ Play</button>
+                    <button class="btn" id="pauseBtn" disabled>⏸️ Pause</button>
+                    <button class="btn" id="stopBtn" disabled>⏹️ Stop</button>
+                    <button class="btn" id="analyzeBtn" disabled>📊 Analyze Pitch</button>
+                </div>
+
+                <div class="pitch-display" id="pitchDisplay" style="display: none;">
+                    <div style="color: #a0a0a0; margin-bottom: 10px;">Current Pitch</div>
+                    <div class="pitch-value" id="pitchValue">--</div>
+                    <div class="pitch-note" id="pitchNote">--</div>
+                </div>
+            </div>
+
+            <!-- Format Conversion Panel -->
+            <div class="panel">
+                <h2 class="panel-title"><span class="icon">🔄</span> Format Converter</h2>
+
+                <div class="info-box">
+                    <strong>✨ All Formats Supported:</strong> MP3, WAV, OGG, M4A, AAC, FLAC, AIFF
+                </div>
+
+                <div class="control-group" style="margin: 20px 0;">
+                    <label>Convert To:</label>
+                    <select id="outputFormat">
+                        <option value="mp3">MP3 (Universal)</option>
+                        <option value="wav">WAV (Uncompressed)</option>
+                        <option value="ogg">OGG (Web Optimized)</option>
+                        <option value="m4a">M4A (Apple)</option>
+                        <option value="aac">AAC (Advanced)</option>
+                        <option value="flac">FLAC (Lossless)</option>
+                        <option value="aiff">AIFF (Uncompressed)</option>
+                    </select>
+                </div>
+
+                <div class="control-group" style="margin: 20px 0;">
+                    <label>Audio Quality (Bitrate):</label>
+                    <input type="range" id="bitrate" min="64" max="320" value="192" step="32">
+                    <span id="bitrateValue">192 kbps</span>
+                </div>
+
+                <button class="btn btn-success" id="convertBtn" disabled>🔄 Convert & Download</button>
+
+                <div class="feature-list" style="margin-top: 20px;">
+                    <div class="feature-item">
+                        <h4>Any to Any</h4>
+                        <p style="font-size: 0.9em; color: #a0a0a0;">Universal conversion</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Video to Audio</h4>
+                        <p style="font-size: 0.9em; color: #a0a0a0;">Extract from MP4/AVI</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>High Quality</h4>
+                        <p style="font-size: 0.9em; color: #a0a0a0;">Professional encoding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Editing Panel -->
+        <div class="panel">
+            <h2 class="panel-title"><span class="icon">✂️</span> Audio Editor</h2>
+
+            <div class="trim-controls">
+                <div class="control-group">
+                    <label>Start Time (seconds):</label>
+                    <input type="number" id="trimStart" min="0" step="0.1" value="0">
+                </div>
+                <div class="control-group">
+                    <label>End Time (seconds):</label>
+                    <input type="number" id="trimEnd" min="0" step="0.1" value="0">
+                </div>
+                <button class="btn" id="trimBtn" disabled>✂️ Trim Audio</button>
+            </div>
+
+            <h3 style="margin: 25px 0 15px 0; color: #00d4ff;">Audio Effects</h3>
+
+            <div class="effects-grid">
+                <div class="effect-btn" data-effect="normalize">
+                    <div style="font-size: 1.5em;">📊</div>
+                    <div>Normalize</div>
+                </div>
+                <div class="effect-btn" data-effect="fadeIn">
+                    <div style="font-size: 1.5em;">📈</div>
+                    <div>Fade In</div>
+                </div>
+                <div class="effect-btn" data-effect="fadeOut">
+                    <div style="font-size: 1.5em;">📉</div>
+                    <div>Fade Out</div>
+                </div>
+                <div class="effect-btn" data-effect="reverse">
+                    <div style="font-size: 1.5em;">⏮️</div>
+                    <div>Reverse</div>
+                </div>
+                <div class="effect-btn" data-effect="bassBoost">
+                    <div style="font-size: 1.5em;">🔊</div>
+                    <div>Bass Boost</div>
+                </div>
+                <div class="effect-btn" data-effect="trebleBoost">
+                    <div style="font-size: 1.5em;">🎺</div>
+                    <div>Treble Boost</div>
+                </div>
+            </div>
+
+            <div class="controls" style="margin-top: 20px;">
+                <div class="control-group">
+                    <label>Volume: <span id="volumeValue">100%</span></label>
+                    <input type="range" id="volume" min="0" max="200" value="100">
+                </div>
+                <div class="control-group">
+                    <label>Speed: <span id="speedValue">1.0x</span></label>
+                    <input type="range" id="speed" min="0.5" max="2" value="1" step="0.1">
+                </div>
+            </div>
+
+            <button class="btn btn-success" id="applyEffectsBtn" disabled>✨ Apply Effects</button>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h2 style="margin-bottom: 10px;">Processing...</h2>
+            <p id="loadingText">Please wait</p>
+            <div class="progress-container">
+                <div class="progress-bar-loading" id="progressBarLoading"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FFmpeg.wasm Library -->
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+    <script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
+
+    <script>
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.7/dist/umd/ffmpeg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/soundtouchjs@0.1.28/dist/soundtouch.min.js"></script>
+    <script src="https://unpkg.com/meyda@5.4.0/dist/web/meyda.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

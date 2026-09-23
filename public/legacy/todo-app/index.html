@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2F9E62" />
+  <title>Simple Todo | Save Your Tasks</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="card">
+      <header class="app-header">
+        <h1>Things To Do</h1>
+        <p class="subtitle">Simple, fast, and saved in your browser</p>
+      </header>
+
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <input id="todo-input" type="text" placeholder="Add a new task…" aria-label="Add a new task" />
+        <button class="add-btn" type="submit" aria-label="Add">Add</button>
+      </form>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <footer class="toolbar">
+        <span id="items-left" class="muted">0 items left</span>
+        <div class="filters" role="group" aria-label="Filter todos">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="active">Active</button>
+          <button class="filter" data-filter="completed">Completed</button>
+        </div>
+        <button id="clear-completed" class="link-btn">Clear Completed</button>
+      </footer>
+    </section>
+    <footer class="credits">
+      <span>Made with ❤️ & 🍵 by <a class="move" href="https://code-with-hassan-phi.vercel.app">adil12hassan</a></span>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+
+</html>

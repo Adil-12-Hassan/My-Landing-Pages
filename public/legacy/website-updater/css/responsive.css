@@ -1,0 +1,460 @@
+/* --================
+   RESPONSIVE.CSS
+   Fix & Build | Web Solutions
+   Breakpoints:
+   - 1200px  Large screens / small desktops
+   - 992px   Tablets landscape
+   - 768px   Tablets portrait
+   - 576px   Mobile large
+   - 400px   Mobile small
+--================ */
+
+
+/* --================
+   1200px - LARGE SCREENS
+--================ */
+@media (max-width: 1200px) {
+
+    /* HERO */
+    .hero .container {
+        gap: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+}
+
+
+/* --================
+   992px - TABLETS LANDSCAPE
+--================ */
+@media (max-width: 992px) {
+
+    /* HEADER */
+    .navbar {
+        display: none;
+    }
+
+    header .btn {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 5px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        border-radius: 999px;
+        transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Open */
+    .navbar.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 7, 27, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(112, 0, 255, 0.25);
+        padding: 1.5rem 5%;
+        gap: 1.25rem;
+        z-index: 999;
+    }
+
+    /* HERO */
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-image {
+        order: 1;
+    }
+
+    .hero-image img {
+        max-width: 400px;
+    }
+
+    .hero-description {
+        margin-inline: auto;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-review {
+        justify-content: center;
+    }
+
+    /* STATS */
+    .stats-grid {
+        grid-template-columns: repeat(2. 1fr);
+    }
+
+    /* SERVICES */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* PROJECTS */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* REVIEWS */
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* CONTACT */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    /* BANNER */
+    .banner-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .banner-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: .5rem;
+    }
+}
+
+
+/* --================
+   768px - TABLETS PORTRAIT
+--================ */
+@media (max-width: 768px) {
+
+    /* HERO */
+    .hero {
+        padding: 3rem 0;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-image img {
+        max-width: 320px;
+    }
+
+    .hero-badge {
+        font-size: .8rem;
+    }
+
+    /* SERVICES */
+    .service-card {
+        min-height: auto;
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* PROJECTS */
+    .project-navbar {
+        gap: .5rem;
+    }
+
+    .filter-btn {
+        padding: .4rem 1rem;
+        font-size: .85rem;
+    }
+
+    /* REVIEWS */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* CONTACT */
+    .contact-info h3 {
+        font-size: 1.2rem;
+    }
+
+    /* BANNER */
+    .banner-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .banner-content h2 {
+        font-size: 1.6rem;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/* --================
+   576px - MOBILE LARGE
+--================ */
+@media (max-width: 576px) {
+
+    /* HEADER */
+    header .container {
+        height: 65px;
+    }
+
+    .logo-content h2 {
+        font-size: .9rem;
+    }
+
+    .logo-content span {
+        font-size: .72rem;
+    }
+
+    .logo img {
+        width: 36px;
+    }
+
+    /* HERO */
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: .9rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero-image img {
+        max-width: 260px;
+    }
+
+    /* STATS */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+    }
+
+    /* SECTION HEADINGS */
+    .service-heading,
+    .about-heading,
+    .project-heading,
+    .reviews-heading,
+    .contact-heading {
+        font-size: 1.4rem;
+    }
+
+    /* SERVICES */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* PROJECTS */
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-navbar {
+        gap: .4rem;
+    }
+
+    .filter-btn {
+        padding: .35rem .85rem;
+        font-size: .8rem;
+    }
+
+    /* REVIEWS */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        padding: 1.25rem;
+    }
+
+    /* CONTACT */
+    .contact-info,
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .contact-form .btn {
+        width: 100%;
+    }
+
+    /* BANNER */
+    .banner-content {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .banner-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .banner-btns .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: .5rem;
+        font-size: .85rem;
+    }
+}
+
+
+/* --================
+   400px - MOBILE SMALL
+--================ */
+@media (max-width: 400px) {
+
+    /* HERO */
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-badge {
+        font-size: .75rem;
+        padding: .4rem .8rem;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    /* BUTTONS */
+    .btn {
+        padding: .75rem 1.25rem;
+        font-size: .9rem;
+    }
+
+    /* CONTACT */
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+    }
+
+    /* REVIEW */
+    .review-details {
+        flex-wrap: wrap;
+    }
+
+    .review-star {
+        margin-left: 0;
+        width: 100%;
+    }
+}

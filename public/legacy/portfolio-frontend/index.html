@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Landing Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./public/favicon.svg" type="image/svg+xml" id="favicon" />
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="logo">
+        </div>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#hero">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#services">SERVICES</a>
+            <a href="#blog">BLOG</a>
+            <a href="#contact">MORE</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <button class="contact-btn">CONTACT</button>
+    </header>
+
+    <section class="hero" id="hero">
+
+        <div class="hero-image">
+            <img src="./image/my.png" alt="Profile Picture">
+        </div>
+
+        <div class="hero-content">
+            <span class="tag">CODEWITHADI</span>
+            <h1>I'm a Web <span class="highlight">Developer</span></h1>
+            <p>I'm a Full Stack Developer from Faisalabad, Pakistan, who builds clean,
+                responsive, and scalable web applications with React, Node.js, and modern
+                backend technologies.
+            </p>
+            <a href="./public/AdilCV.pdf" download class="cv-btn">DOWNLOAD CV</a>
+            <!-- <button class="cv-btn">DOWNLOAD CV</button> -->
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <span class="tag">WHO AM I</span>
+                <h2>About <span class="highlight">Me</span></h2>
+                <p>
+                    I'm a Full Stack Developer who builds complete web application from frontend to backend. I focus on
+                    writing clean code and creating real-world solution.
+                </p>
+                <p>
+                    Currently working with React, Node.js and databases to build scalable applications and improve my
+                    development skills every day.
+                </p>
+                <a href="AdilCV.pdf" download class="cv-btn">DOWNLOAD CV</a>
+                <!-- <button class="cv-btn">DOWNLOAD CV</button> -->
+            </div>
+        </div>
+    </section>
+    <!-- Service Section -->
+    <section class="services" id="services">
+        <div class="services-header">
+            <span class="tag">WHAT I DO</span>
+            <h2>My <span class="highlight">Services</span></h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>Building reponsive and performant websites using modren frontend and backend technologies.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>UI / UX Design</h3>
+                <p>Designing clean and intutive interfaces that deliver a great user experience.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Backend Development</h3>
+                <p>Creating scalable REST APIs and server-side logic using Node.js and databases.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="blog-header">
+            <span class="tag">LATEST POSTS</span>
+            <h2>My <span class="highlight">Blog</span></h2>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="https://picsum.photos/400/250?random=1" alt="Blog 1">
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">April 10, 2026</span>
+                    <h3>Getting Started with React 18</h3>
+                    <p>A beginner friendly guide to understanding the new features introduced in React 18.</p>
+                    <a href="https://code-with-hassan-phi.vercel.app/#blog" class="read-more">READ MORE →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="https://picsum.photos/400/250?random=2" alt="Blog 2">
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">March 22, 2026</span>
+                    <h3>Node.js REST API Best Practices</h3>
+                    <p>Learn how to structure and secure your Node.js APIs for production level applications.</p>
+                    <a href="https://code-with-hassan-phi.vercel.app/#blog" class="read-more">READ MORE →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="https://picsum.photos/400/250?random=3" alt="Blog 3">
+                </div>
+                <div class="blog-info">
+                    <span class="blog-date">February 15, 2026</span>
+                    <h3>Mastering CSS Grid Layout</h3>
+                    <p>Deep dive into CSS Grid and how to use it to build complex responsive layouts easily.</p>
+                    <a href="https://code-with-hassan-phi.vercel.app/#blog" class="read-more">READ MORE →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <section class="contact" id="contact">
+        <div class="contact-header">
+            <span class="tag">GET IN TOUCH</span>
+            <h2>Contact <span class="highlight">Me</span></h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>📍 Faisalabad Punjab, Pakistan</p>
+                <p>📧 syedadilhassan06@gmail.com</p>
+                <p>📞 +92 328 151 1293</p>
+            </div>
+            <form action="" class="contact-form" id="contactForm">
+                <input type="text" name="fname" id="nameInput" placeholder="Your Name">
+                <input type="email" name="email" id="emailInput" placeholder="Your Email">
+                <textarea name="message" id="messageInput" rows="5" placeholder="Your Message"></textarea>
+                <button type="submit" class="cv-btn">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="logo">
+                <p>Building clean, scalable and modren web applications with passion and percision.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#blog">Blog</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>syedadilhassan06@gmail.com</p>
+                <p>Faisalabad Punjab, Pakistan</p>
+                <p>+92 328 151 1293</p>
+                <p><a class="move" href="https://code-with-hassan-phi.vercel.app" target="_blank" rel="noopener noreferrer">Visit Blog App</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Syed Adil Hassan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

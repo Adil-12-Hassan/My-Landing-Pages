@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRETWORK Studio Guitar | Computerizes Your Music</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Playfair+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo">
+                FRETWORK
+                <sub>// STUDIO GUITAR - WEB EDITION</sub>
+            </div>
+            <div class="header-right">
+                WEB AUDIO API<br>
+                6-STRING / STANDARD TUNING<br>
+                VERSION 1.0
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Amp Model</div>
+                    <div class="amp-btns">
+                        <button class="ampbtn active" data-amp="clean">Clean</button>
+                        <button class="ampbtn" data-amp="crunch">Crunch</button>
+                        <button class="ampbtn" data-amp="lead">Lead</button>
+                        <button class="ampbtn" data-amp="acoustic">Acoustic</button>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Tone Stack</div>
+                    <div class="knob-row">
+                        <div class="knob-wrap">
+                            <div class="knob-name">GAIN</div>
+                            <div class="knob" data-param="gain" data-min="0.1" data-max="4" data-val="0.6">
+                                <div class="knob-dot"></div>
+                            </div>
+                            <div class="knob-val" id="gain-val">60</div>
+                        </div>
+                        <div class="knob-wrap">
+                            <div class="knob-name">TONE</div>
+                            <div class="knob" data-param="tone" data-min="200" data-max="8000" data-val="3000">
+                                <div class="knob-dot"></div>
+                            </div>
+                            <div class="knob-val" id="tone-val">3k</div>
+                        </div>
+                        <div class="knob-wrap">
+                            <div class="knob-name">VOL</div>
+                            <div class="knob" data-param="vol" data-min="0" data-max="1" data-val="0.7">
+                                <div class="knob-dot"></div>
+                            </div>
+                            <div class="knob-val" id="vol-val">70</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">FX</div>
+                    <div class="slider-row">
+                        <div class="slider-item">
+                            <span class="slider-name">DELAY</span>
+                            <input type="range" class="orange" id="delay" min="0" max="0.6" step="0.01" value="0">
+                            <span class="slider-num" id="delay-val">0.0</span>
+                        </div>
+                        <div class="slider-item">
+                            <span class="slider-name">VERB</span>
+                            <input type="range" class="green" id="reverb" min="0" max="1" step="0.01" value="0.2">
+                            <span class="slider-num" id="reverb-val" style="color:var(--accent2)">20%</span>
+                        </div>
+                        <div class="slider-item">
+                            <span class="slider-name">CHRS</span>
+                            <input type="range" class="gold" id="chorus" min="0" max="1" step="0.01" value="0">
+                            <span class="slider-num" id="chorus-val" style="color:var(--accent3)">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Output Level</div>
+                    <div class="vu-wrap" id="vu-wrap">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FRETBOARD -->
+            <div class="fretboard-wrap">
+                <div class="now-playing" id="now-playing">-</div>
+
+                <div class="fb-header">
+                    <div class="fb-title">// Fretboard - Click or Keyboard</div>
+                    <div class="fb-tuning">
+                        <button class="tuning-btn active" data-tuning="standard">E std</button>
+                        <button class="tuning-btn" data-tuning="drop-d">Drop D</button>
+                        <button class="tuning-btn" data-tuning="open-g">Open G</button>
+                    </div>
+                </div>
+
+                <div class="neck" id="neck">
+                    <div class="fret-lines" id="fret-lines"></div>
+                    <div class="fret-markers" id="fret-markers"></div>
+                    <div class="strings-area" id="strings-area"></div>
+                </div>
+
+                <div class="fret-numbers" id="fret-numbers"></div>
+
+                <!-- Chords -->
+                <div class="chord-area">
+                    <div>
+                        <div class="chord-label">// Quick Chords</div>
+                        <div class="chord-btns" id="chord-btns"></div>
+                    </div>
+                </div>
+
+                <!-- Key hints -->
+                <div>
+                    <div class="chord-label" style="margin-top:14px">// Keyboard - Row Keys per String</div>
+                    <div class="keyhints-area" id="keyhints"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <span>FRETWORK STUDIO</span>
+            <span>WEB AUDIO API // 6-STRING ENGINE</span>
+            <span>© 2025</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

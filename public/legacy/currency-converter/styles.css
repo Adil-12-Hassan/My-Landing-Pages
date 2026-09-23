@@ -1,0 +1,90 @@
+/* Updated Money Background & UI */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f4c81 0%, #1868ae 80%);
+  /* Optional subtle “money pattern overlay” */
+  background-image:
+    url('https://www.transparenttextures.com/patterns/asfalt-light.png'),
+    linear-gradient(135deg, #0f4c81 0%, #1868ae 100%);
+  background-size: auto, cover;
+  background-attachment: fixed;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container */
+.container {
+  max-width: 420px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+/* Headings */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b305d;
+  margin-bottom: 15px;
+}
+
+#result {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0b305d;
+  margin-top: 15px;
+}
+
+/* Inputs & Buttons */
+input,
+select,
+button {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #0b305d;
+  box-shadow: 0 0 8px rgba(11, 48, 93, 0.5);
+}
+
+button {
+  background-color: #0b305d;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #082450;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #result {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,598 @@
+/* -═══════════
+   Portfolio - style.css
+   Author: Syed Adil Hassan
+   -═══════════ */
+
+/* ── Reset ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #17151c;
+    --surface: #261d23;
+    --surface-deep: #211a20;
+    --text: #f7f0e8;
+    --muted: #b6aaa0;
+    --accent: #ffb000;
+    --accent-strong: #ff6b4a;
+    --accent-hover: #e85d04;
+    --border: #3b2d31;
+    --border-soft: rgba(255, 224, 194, 0.14);
+    --glass: rgba(23, 21, 28, 0.72);
+    --gradient: linear-gradient(135deg, var(--accent), var(--accent-strong));
+}
+
+/* ── Base ── */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+}
+
+.move {
+    text-decoration: none;
+    text-decoration-color: var(--accent);
+    color: var(--text);
+}
+
+/* ── Navbar ── */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+    transition: all 0.3s ease;
+}
+
+.navbar .logo img {
+    width: 45px;
+    border-radius: 50%;
+}
+
+.nav-links a {
+    margin: 0 18px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-links a.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+}
+
+.contact-btn {
+    background: var(--gradient);
+    color: var(--bg);
+    border: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* ── Hero ── */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    gap: 80px;
+    min-height: 85vh;
+}
+
+.hero-image img {
+    width: 320px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text);
+}
+
+.hero-content p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ── Shared ── */
+.tag {
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.highlight {
+    color: var(--accent);
+    font-weight: 300;
+}
+
+.cv-btn {
+    width: fit-content;
+    padding: 14px 32px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cv-btn:hover {
+    background: var(--gradient);
+    color: var(--bg);
+}
+
+/* ── About ── */
+.about {
+    padding: 80px 10%;
+    background-color: var(--surface);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 550px;
+}
+
+.about-content h2 {
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.1;
+}
+
+.about-content p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ── Services ── */
+.services {
+    padding: 80px 10%;
+    background-color: var(--bg);
+}
+
+.services-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.services-header h2 {
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.1;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 40px 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: var(--accent);
+}
+
+.service-icon {
+    font-size: 36px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.service-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ── Blog ── */
+.blog {
+    padding: 80px 10%;
+    background-color: var(--surface);
+}
+
+.blog-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.blog-header h2 {
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.1;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.blog-card:hover {
+    border-color: var(--accent);
+}
+
+.blog-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.blog-date {
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+.blog-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.blog-info p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.read-more {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ── Contact ── */
+.contact {
+    padding: 80px 10%;
+    background-color: var(--bg);
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.contact-header h2 {
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.1;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-info p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 14px 18px;
+    font-size: 14px;
+    border-radius: 4px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .cv-btn {
+    align-self: flex-start;
+}
+
+/* ── Footer ── */
+.footer {
+    background-color: var(--surface);
+    padding: 60px 10% 20px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-brand img {
+    width: 45px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 260px;
+}
+
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--muted);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-contact p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #796c67;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation - X shape when open */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 16px 24px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(23, 21, 28, 0.95);
+        backdrop-filter: blur(12px);
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-soft);
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0;
+        padding: 14px 30px;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 6%;
+        gap: 40px;
+        min-height: unset;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero .cv-btn,
+    .about .cv-btn {
+        align-self: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-content h2 {
+        font-size: 36px;
+    }
+
+    .services-header h2,
+    .blog-header h2,
+    .contact-header h2 {
+        font-size: 36px;
+    }
+
+    .services-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

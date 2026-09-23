@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ΣTYLOPHONE - Studio Edition</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="logo"><span>Σ</span>TYLOPHONE</div>
+            <div class="tagline">Studio Edition // v2.0</div>
+        </div>
+
+        <div class="unit">
+            <div class="corner-br"></div>
+            <div class="corner-bl"></div>
+
+            <!-- CONTROLS -->
+            <div class="controls-row">
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Waveform</div>
+                    <div class="wave-btns">
+                        <button class="wavebtn active" data-wave="square" title="Square">▢</button>
+                        <button class="wavebtn" data-wave="sawtooth" title="Sawtooth">/|</button>
+                        <button class="wavebtn" data-wave="sine" title="Sine">~</button>
+                        <button class="wavebtn" data-wave="triangle" title="Triangle">△</button>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Delay Time</div>
+                    <div class="slider-wrap">
+                        <div class="slider-track">
+                            <input type="range" id="delay" min="0" max="0.6" step="0.01" value="0">
+                            <span class="slider-val" id="delay-val">0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Filter Cutoff</div>
+                    <div class="slider-wrap">
+                        <div class="slider-track">
+                            <input type="range" id="filter" min="200" max="8000" value="3000" class="pink">
+                            <span class="slider-val" id="filter-val" style="color:var(--accent2)">3000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Reverb Mix</div>
+                    <div class="slider-wrap">
+                        <div class="slider-track">
+                            <input type="range" id="reverb" min="0" max="1" step="0.01" value="0" class="yellow">
+                            <span class="slider-val" id="reverb-val" style="color:var(--accent3)">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ctrl-group">
+                    <div class="ctrl-label">Octave</div>
+                    <div class="wave-btns">
+                        <button class="wavebtn" id="oct-down" style="font-size:14px">-1</button>
+                        <div style="display:flex;align-items:center;padding:0 8px;color:var(--accent);font-size:14px;font-family:'Space Mono',monospace"
+                            id="oct-display">4</div>
+                        <button class="wavebtn" id="oct-up" style="font-size:14px">+1</button>
+                    </div>
+                </div>
+
+                <!-- VU meters -->
+                <div class="vu-section" id="vu-section">
+                    <!-- bars added by JS -->
+                </div>
+
+            </div>
+
+            <!-- STRIP -->
+            <div class="strip-section">
+                <div class="strip-label">// STYLOPHONE STRIP - TOUCH OR CLICK</div>
+                <div class="strip" id="strip"></div>
+            </div>
+
+            <!-- KEYBOARD -->
+            <div class="keyboard-section">
+                <div class="keyboard-label">// CHROMATIC KEYBOARD - MOUSE OR KEYS</div>
+                <div class="keyboard" id="keyboard"></div>
+            </div>
+
+            <!-- KEY HINTS -->
+            <div class="keyhints" id="keyhints"></div>
+
+        </div>
+
+        <div class="footer">
+            <span>ΣTYLOPHONE STUDIO</span>
+            <span>WEB AUDIO API</span>
+            <span>© 2025</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
