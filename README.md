@@ -1,8 +1,8 @@
 # My Landing Pages
 
-A single, unified React + Vite site that hosts a growing collection of standalone landing pages, mini web apps, and experiments — consolidated from a dozen+ separate repositories into one clean, easy-to-maintain project.
+A single, unified React + Vite site that hosts a growing collection of standalone landing pages, mini web apps, and experiments - consolidated from a dozen+ separate repositories into one clean, easy-to-maintain project.
 
-> Built by [Adil Hassan](https://github.com/) — IT undergraduate, founder of [SkyeVault](https://github.com/), and freelance web developer.
+> Built by [Adil Hassan](https://github.com/) - IT undergraduate, founder of [SkyeVault](https://github.com/), and freelance web developer.
 
 ---
 
@@ -14,7 +14,7 @@ Previously, every small project (a calculator, a music player, a portfolio, a la
 - 10+ repos to maintain, most of which were never touched again
 - No single place to showcase everything together
 
-This project fixes that: one repo, one deployment, one home page linking out to every project — old and new.
+This project fixes that: one repo, one deployment, one home page linking out to every project - old and new.
 
 ---
 
@@ -92,7 +92,7 @@ npm install
 
 ### 2. Set up environment variables
 
-Create a `.env` file in the project root (never commit this — it's already in `.gitignore`):
+Create a `.env` file in the project root (never commit this - it's already in `.gitignore`):
 
 ```env
 SMTP_HOST=smtp.yourprovider.com
@@ -110,7 +110,7 @@ Set the same variables in **Vercel → Project Settings → Environment Variable
 npm run dev
 ```
 
-Visit `http://localhost:5173` — the home page lists every legacy project, each linking to `/legacy/<project-name>/`, served untouched.
+Visit `http://localhost:5173` - the home page lists every legacy project, each linking to `/legacy/<project-name>/`, served untouched.
 
 ### 4. Build for production
 
@@ -123,13 +123,13 @@ npm run preview
 
 ## 📬 Contact Form
 
-The contact form (`src/components/ContactForm.jsx`) posts to `/api/contact`, a Vercel serverless function that validates the input and sends an email via Nodemailer over SMTP. No third-party form service, no database — just a direct, self-hosted email pipeline.
+The contact form (`src/components/ContactForm.jsx`) posts to `/api/contact`, a Vercel serverless function that validates the input and sends an email via Nodemailer over SMTP. No third-party form service, no database - just a direct, self-hosted email pipeline.
 
 ---
 
 ## 🗂️ Legacy Projects
 
-Every project under `public/legacy/` is a fully self-contained static site, untouched from its original repo, just relocated and normalized to kebab-case. They're served as raw static files — no React, no bundling — so each one loads and behaves exactly as it always did.
+Every project under `public/legacy/` is a fully self-contained static site, untouched from its original repo, just relocated and normalized to kebab-case. They're served as raw static files - no React, no bundling - so each one loads and behaves exactly as it always did.
 
 | Project | Description |
 |---|---|
@@ -160,7 +160,7 @@ Every project under `public/legacy/` is a fully self-contained static site, unto
 
 ## 📄 License
 
-This project is open source. Individual legacy projects may carry their own licenses — check each project's folder for details.
+This project is open source. Individual legacy projects may carry their own licenses - check each project's folder for details.
 
 ---
 
