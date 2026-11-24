@@ -2,7 +2,7 @@
 
 A single, unified React + Vite site that hosts a growing collection of standalone landing pages, mini web apps, and experiments - consolidated from a dozen+ separate repositories into one clean, easy-to-maintain project.
 
-> Built by [Adil Hassan](https://github.com/) - IT undergraduate, founder of [ARWYON](https://github.com/ARQYON), and freelance web developer.
+> Built by [Adil Hassan](https://github.com/) - IT undergraduate, founder of [ARQYON](https://github.com/ARQYON), and freelance web developer.
 
 ---
 
